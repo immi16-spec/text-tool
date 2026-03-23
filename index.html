@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextToolPro - Free AI Grammar Checker & Professional Text Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+   
+    <!-- 1. HEADER / NAVIGATION -->
+    <nav class="sticky top-0 z-50 shadow-sm" style="background-color: var(--nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
+                <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                    <div class="relative group py-5">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
+                        <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
+                            <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
+                            <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="py-5 hover:text-blue-600">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- AD SLOT 1: TOP -->
+    <div class="max-w-5xl mx-auto px-4 mt-8"><div class="ad-slot h-24">AdSense Banner Ad (Top)</div></div>
+
+    <main class="max-w-7xl mx-auto py-12 px-4">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">Master Your Text with <span class="text-white">AI</span></h1>
+            <p class="text-lg opacity-80" style="color: var(--text-muted);">Free professional grammar checker and text processing tools.</p>
+        </div>
+
+        <!-- 2. MAIN FEATURED TOOL: AI GRAMMAR & TRANSLATOR -->
+        <div class="card p-6 md:p-10 mb-20 shadow-2xl border-4 border-white dark:border-zinc-800">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8 bg-gray-50 dark:bg-zinc-800 p-4 rounded-2xl">
+                <div class="flex items-center gap-4">
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Translate To:</label>
+                    <select id="targetLanguage" class="p-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm outline-none dark:text-white">
+                        <option value="en">English (Correction Only)</option>
+                        <option value="ur">Urdu (اردو)</option>
+                        <option value="hi">Hindi (हिन्दी)</option>
+                        <option value="ar">Arabic (العربية)</option>
+                        <option value="fr">French (Français)</option>
+                    </select>
+                </div>
+                <div id="status" class="text-[10px] font-bold text-blue-500 uppercase tracking-[2px]">AI System Ready</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Input -->
+                <div class="flex flex-col bg-gray-50 dark:bg-zinc-800 rounded-3xl p-2 border border-gray-100 dark:border-zinc-700">
+                    <textarea id="inputText" class="w-full h-80 p-6 bg-transparent outline-none text-lg resize-none dark:text-white" placeholder="Type or paste English text here to fix grammar..."></textarea>
+                    <div class="p-4 border-t dark:border-zinc-700 flex justify-end">
+                        <button onclick="clearText()" class="text-xs font-bold text-gray-400 hover:text-red-500 uppercase">Clear Input</button>
+                    </div>
+                </div>
+                <!-- Output -->
+                <div class="flex flex-col bg-blue-50 dark:bg-zinc-900 rounded-3xl p-2 border border-blue-100 dark:border-blue-900">
+                    <div id="outputText" class="w-full h-[375px] p-6 text-blue-900 dark:text-blue-200 text-lg leading-relaxed overflow-y-auto whitespace-pre-wrap">Result will appear here...</div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-end items-center gap-4 mt-8 pt-8 border-t dark:border-zinc-700">
+                <button onclick="processAI()" id="actionBtn" class="px-10 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl hover:bg-blue-700 transition-all">Fix Grammar & Process</button>
+                <button onclick="copyOutput()" class="px-8 py-4 bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-white rounded-2xl font-bold hover:bg-gray-200 transition-all">Copy Result</button>
+            </div>
+        </div>
+
+        <!-- AD SLOT 2: MIDDLE -->
+        <div class="mb-20"><div class="ad-slot h-64">AdSense Middle Display Ad</div></div>
+
+       <!-- 3. OTHER TOOLS GRID (All 9 Tools) -->
+        <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest text-white">More Powerful Tools</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20">
+            
+            <!-- Tool 1 -->
+            <a href="word-counter.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">📝</div>
+                <h4 class="font-bold mb-2">Word Counter</h4>
+                <p class="text-xs opacity-50">Instant statistics for characters, words, and lines.</p>
+            </a>
+
+            <!-- Tool 2 -->
+            <a href="case-converter.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">Aa</div>
+                <h4 class="font-bold mb-2">Case Converter</h4>
+                <p class="text-xs opacity-50">Convert text between UPPER, lower, and Sentence case.</p>
+            </a>
+
+            <!-- Tool 3 -->
+            <a href="clean-spaces.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">↔️</div>
+                <h4 class="font-bold mb-2">Clean Spaces</h4>
+                <p class="text-xs opacity-50">Remove unnecessary double spaces and tabs instantly.</p>
+            </a>
+
+            <!-- Tool 4 -->
+            <a href="duplicate-remover.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">✂️</div>
+                <h4 class="font-bold mb-2">Duplicate Remover</h4>
+                <p class="text-xs opacity-50">Identify and delete repetitive lines from your lists.</p>
+            </a>
+
+            <!-- Tool 5 -->
+            <a href="slug-generator.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">🔗</div>
+                <h4 class="font-bold mb-2">Slug Generator</h4>
+                <p class="text-xs opacity-50">Generate SEO-friendly URL slugs for your website.</p>
+            </a>
+
+            <!-- Tool 6 -->
+            <a href="fancy-font-generator.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">✨</div>
+                <h4 class="font-bold mb-2">Fancy Fonts</h4>
+                <p class="text-xs opacity-50">70+ Stylish fonts for Instagram and TikTok bios.</p>
+            </a>
+
+            <!-- Tool 7 -->
+            <a href="text-reverser.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">🔄</div>
+                <h4 class="font-bold mb-2">Text Reverser</h4>
+                <p class="text-xs opacity-50">Flip your text, words, or sentences backwards.</p>
+            </a>
+
+            <!-- Tool 8 -->
+            <a href="nato-translator.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">✈️</div>
+                <h4 class="font-bold mb-2">NATO Translator</h4>
+                <p class="text-xs opacity-50">Convert text into the phonetic radio alphabet code.</p>
+            </a>
+
+            <!-- Tool 9 -->
+            <a href="lorem-ipsum.html" class="card p-8 hover:translate-y-[-5px] transition-all">
+                <div class="text-3xl mb-4">¶</div>
+                <h4 class="font-bold mb-2">Lorem Ipsum</h4>
+                <p class="text-xs opacity-50">Generate professional dummy text for designs.</p>
+            </a>
+
+        </div>
+
+        <!-- 4. GUIDE BOXES (SEO) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Why Use TextToolPro?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">TextToolPro is a one-stop destination for all your text processing needs. From AI-powered grammar checking to SEO slug generation, we provide fast and secure tools to help writers and developers excel.</p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Privacy & Speed</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">All our tools run using modern JavaScript, meaning most of the processing happens in your browser. We respect your privacy and never store your sensitive text on our servers.</p>
+            </div>
+        </div>
+
+        <!-- AD SLOT 4: BOTTOM -->
+        <div class="mt-16"><div class="ad-slot h-32">AdSense Large Bottom Ad</div></div>
+    </main>
+
+    <!-- FOOTER -->
+   <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+                <div>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDarkMode() { 
+            document.body.classList.toggle('dark-mode'); 
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light'); 
+        }
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        async function processAI() {
+            const text = document.getElementById('inputText').value;
+            const output = document.getElementById('outputText');
+            const status = document.getElementById('status');
+            const btn = document.getElementById('actionBtn');
+            const targetLang = document.getElementById('targetLanguage').value;
+
+            if(!text.trim()) return alert("Please enter text!");
+
+            btn.disabled = true;
+            btn.innerText = "Processing...";
+            status.innerText = "Fixing Grammar...";
+
+            try {
+                // Double Translation Hack to fix Grammar (English -> French -> English)
+                const fixUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fr&dt=t&q=${encodeURIComponent(text)}`;
+                const fixResp = await fetch(fixUrl);
+                const fixData = await fixResp.json();
+                const frenchText = fixData[0].map(x => x[0]).join('');
+
+                const backUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=fr&tl=en&dt=t&q=${encodeURIComponent(frenchText)}`;
+                const backResp = await fetch(backUrl);
+                const backData = await backResp.json();
+                let correctedText = backData[0].map(x => x[0]).join('');
+
+                if(targetLang !== 'en') {
+                    status.innerText = "Translating...";
+                    const tUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(correctedText)}`;
+                    const tResp = await fetch(tUrl);
+                    const tData = await tResp.json();
+                    correctedText = tData[0].map(x => x[0]).join('');
+                }
+
+                output.innerText = correctedText;
+                status.innerText = "Success!";
+            } catch (err) {
+                status.innerText = "Error. Try again.";
+                output.innerText = "An error occurred. Please try again later.";
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Fix Grammar & Process";
+            }
+        }
+
+        function copyOutput() {
+            const text = document.getElementById('outputText').innerText;
+            if(text.includes("Result will appear")) return;
+            const el = document.createElement('textarea');
+            el.value = text; document.body.appendChild(el);
+            el.select(); document.execCommand('copy');
+            document.body.removeChild(el);
+            alert("Copied!");
+        }
+
+        function clearText() { 
+            document.getElementById('inputText').value = ''; 
+            document.getElementById('outputText').innerText = 'Result will appear here...'; 
+            document.getElementById('status').innerText = 'System Ready';
+        }
+    </script>
+</body>
+</html>

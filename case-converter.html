@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Converter - UPPERCASE, lowercase, Sentence Case | TextToolPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <nav class="sticky top-0 z-50 shadow-sm" style="background-color: var(--nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
+                <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                    <div class="relative group py-5">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
+                        <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
+                            <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
+                            <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="py-5 hover:text-blue-600">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AD SLOT 1: TOP -->
+    <div class="max-w-5xl mx-auto px-4 mt-8">
+        <div class="ad-slot h-24">AdSense Banner Ad (Top Section)</div>
+    </div>
+
+    <main class="max-w-5xl mx-auto py-12 px-4">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Case Converter</h1>
+            <p class="text-lg opacity-80" style="color: var(--text-muted);">Switch between different letter cases with a single click.</p>
+        </div>
+
+        <!-- MAIN TOOL CARD (Buttons on Top) -->
+        <div class="card p-6 md:p-10 mb-6">
+            <div class="flex flex-wrap gap-2 mb-6 bg-gray-50 dark:bg-zinc-800 p-3 rounded-xl border border-gray-100 dark:border-zinc-700">
+                <button onclick="upper()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Upper Case</button>
+                <button onclick="lower()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Lower Case</button>
+                <button onclick="sentence()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Sentence Case</button>
+                <button onclick="capitalize()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Capitalized Case</button>
+                <button onclick="copyText()" class="ml-auto px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700">Copy Result</button>
+            </div>
+
+            <textarea id="inputText" class="w-full h-80 p-6 bg-gray-50 dark:bg-zinc-800 rounded-2xl outline-none text-lg resize-none border-none focus:ring-2 ring-blue-500 transition-all dark:text-white" placeholder="Type or paste your text here to convert case..."></textarea>
+            
+            <div class="flex justify-end mt-4">
+                <button onclick="clearText()" class="text-xs font-bold uppercase text-gray-400 hover:text-red-500 transition">Clear Text</button>
+            </div>
+        </div>
+
+        <!-- AD SLOT 2: BELOW TOOL -->
+        <div class="mb-10">
+            <div class="ad-slot h-28">AdSense Native Ad (Below Tool)</div>
+        </div>
+
+        <!-- AD SLOT 3: MIDDLE -->
+        <div class="mb-16">
+            <div class="ad-slot h-64">AdSense Display Ad (Middle Section)</div>
+        </div>
+
+        <!-- GUIDE BOXES (4 SEO Boxes) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">What is Case Converter?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    The Case Converter is a simple but powerful online tool that allows you to change the capitalization of any text. Whether you accidentally left your Caps Lock on or need to format a title for a blog post, this tool handles it instantly.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">The Sentence Case Mode</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Sentence case is the most useful mode for cleaning up messy notes. It intelligently capitalizes the first letter of each sentence while turning the rest of the text into lowercase, ensuring a formal and readable structure.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Who should use this?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Students, social media managers, and developers use this tool daily. It saves time spent re-typing content and ensures consistency across different documents and digital platforms like Instagram, Twitter, and Facebook.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Secure & Instant</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Like all our tools, the Case Converter runs entirely in your browser. We never send your text to any server. Your work remains 100% private and the conversion happens instantly, even with large paragraphs.
+                </p>
+            </div>
+        </div>
+
+        <!-- AD SLOT 4: BOTTOM -->
+        <div class="mt-16">
+            <div class="ad-slot h-32">AdSense Large Banner (Above Footer)</div>
+        </div>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+                <div>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DARK MODE LOGIC
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        // CASE CONVERTER LOGIC
+        const input = document.getElementById('inputText');
+
+        function upper() { input.value = input.value.toUpperCase(); }
+        function lower() { input.value = input.value.toLowerCase(); }
+        
+        function sentence() {
+            let val = input.value.toLowerCase();
+            input.value = val.charAt(0).toUpperCase() + val.slice(1).replace(/(\.|\?|\!)\s*([a-z])/g, (m, s, c) => s + " " + c.toUpperCase());
+        }
+
+        function capitalize() {
+            input.value = input.value.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+        }
+
+        function clearText() { input.value = ''; }
+        function copyText() { if(!input.value) return; input.select(); document.execCommand('copy'); alert('Copied to clipboard!'); }
+    </script>
+</body>
+</html>

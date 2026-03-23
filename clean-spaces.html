@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Extra Spaces Online - Remove Multiple Spaces | TextToolPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <nav class="sticky top-0 z-50 shadow-sm transition-colors" style="background-color: var(--nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
+                <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                    <div class="relative dropdown py-5 group cursor-pointer">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
+                        <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
+                            <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
+                            <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="py-5 hover:text-blue-600">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AD SLOT 1: TOP -->
+    <div class="max-w-5xl mx-auto px-4 mt-8">
+        <div class="ad-slot h-24">AdSense Banner Ad (Top Section)</div>
+    </div>
+
+    <main class="max-w-5xl mx-auto py-12 px-4">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Clean Extra Spaces</h1>
+            <p class="text-lg opacity-80" style="color: var(--text-muted);">Instantly remove multiple white spaces, tabs, and trailing spaces from your text.</p>
+        </div>
+
+        <!-- 3. MAIN TOOL CARD -->
+        <div class="card p-6 md:p-10 mb-6">
+            <textarea id="inputText" class="w-full h-80 p-6 bg-gray-50 dark:bg-zinc-800 rounded-2xl outline-none text-lg resize-none border-none focus:ring-2 ring-blue-500 transition-all dark:text-white" placeholder="Paste your messy text here..."></textarea>
+            
+            <div class="flex flex-wrap items-center justify-between mt-8 pt-8 border-t" style="border-color: var(--border-color);">
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                    Instruction: This tool replaces multiple spaces with a single clean space.
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="clearText()" class="px-6 py-2 bg-gray-100 dark:bg-zinc-700 rounded-lg font-bold text-sm hover:bg-gray-200 transition">Clear</button>
+                    <button onclick="cleanSpaces()" class="px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clean Spaces Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AD SLOT 2: BELOW TOOL RESULTS -->
+        <div class="mb-10">
+            <div class="ad-slot h-28">AdSense Native Ad (High Visibility)</div>
+        </div>
+
+        <!-- AD SLOT 3: MIDDLE -->
+        <div class="mb-16">
+            <div class="ad-slot h-64">AdSense Display Ad (Middle Section)</div>
+        </div>
+
+        <!-- 4. GUIDE BOXES (4 SEO Boxes) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">What is Clean Extra Spaces?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    The Clean Extra Spaces tool is a fast utility designed to fix messy text formatting. Whether you copy text from a PDF, an email, or a website, you often get double spaces or unwanted tabs. This tool cleans up your content, making it look professional and uniform in seconds.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">How to use this tool?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Using our tool is simple. Just paste your text into the large white editor above. Once you click the "Clean Spaces Now" button, our algorithm instantly identifies multiple consecutive spaces and replaces them with a single space, while also trimming the edges.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Why remove extra spaces?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Clean formatting is vital for readability and professional documentation. Extra whitespace can lead to errors in code, bloated file sizes, and poor visual presentation. SEO experts and writers use this tool to ensure their content meets high-quality standards.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">100% Safe and Secure</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    At TextToolPro, your privacy is our top priority. Our cleaning logic runs locally in your own browser using JavaScript. This means your text never leaves your device and is never uploaded to our servers. It is the most secure way to clean sensitive information.
+                </p>
+            </div>
+        </div>
+
+        <!-- AD SLOT 4: BOTTOM -->
+        <div class="mt-16">
+            <div class="ad-slot h-32">AdSense Large Banner (Above Footer)</div>
+        </div>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 text-sm">
+                <!-- Text Tools -->
+                <div>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
+                    </ul>
+                </div>
+                <!-- Creative Tools -->
+                <div>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <!-- PAGES Section -->
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600 font-medium">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600 font-medium">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600 font-medium">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DARK MODE Logic
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        // CLEAN SPACES Logic
+        const input = document.getElementById('inputText');
+        function cleanSpaces() {
+            if(!input.value) return;
+            // Regex to replace all multiple spaces/tabs with single space and trim ends
+            input.value = input.value.replace(/\s+/g, ' ').trim();
+            alert('Text Cleaned!');
+        }
+
+        function clearText() { 
+            input.value = ''; 
+            input.dispatchEvent(new Event('input')); 
+        }
+
+        function copyText() { 
+            if(!input.value) return;
+            input.select(); 
+            document.execCommand('copy'); 
+            alert('Cleaned text copied!'); 
+        }
+    </script>
+</body>
+</html>

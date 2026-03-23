@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Line Remover - Clean Your Lists Online | TextToolPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <nav class="sticky top-0 z-50 shadow-sm transition-colors" style="background-color: var(--nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
+                <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                    <div class="relative dropdown py-5 group cursor-pointer">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
+                        <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
+                            <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
+                            <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="py-5 hover:text-blue-600">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AD SLOT 1: TOP -->
+    <div class="max-w-5xl mx-auto px-4 mt-8">
+        <div class="ad-slot h-24">AdSense Banner Ad (Top Section)</div>
+    </div>
+
+    <main class="max-w-5xl mx-auto py-12 px-4">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Duplicate Line Remover</h1>
+            <p class="text-lg opacity-80" style="color: var(--text-muted);">Remove all repetitive lines from your lists instantly.</p>
+        </div>
+
+        <!-- 3. MAIN TOOL CARD -->
+        <div class="card p-6 md:p-10 mb-6">
+            <textarea id="inputText" class="w-full h-80 p-6 bg-gray-50 dark:bg-zinc-800 rounded-2xl outline-none text-lg resize-none border-none focus:ring-2 ring-blue-500 transition-all dark:text-white" placeholder="Paste your list here (one item per line)..."></textarea>
+            
+            <div class="flex flex-wrap items-center justify-between mt-8 pt-8 border-t" style="border-color: var(--border-color);">
+                <div class="flex gap-10">
+                    <div class="text-center">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Original Lines</span>
+                        <span id="originalCount" class="block text-3xl font-bold text-blue-600">0</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Unique Lines</span>
+                        <span id="uniqueCount" class="block text-3xl font-bold text-blue-600">0</span>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="clearText()" class="px-6 py-2 bg-gray-100 dark:bg-zinc-700 rounded-lg font-bold text-sm hover:bg-gray-200 transition">Clear</button>
+                    <button onclick="removeDuplicates()" class="px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Remove Duplicates</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AD SLOT 2 -->
+        <div class="mb-10"><div class="ad-slot h-28">AdSense Native Ad</div></div>
+
+        <!-- AD SLOT 3 -->
+        <div class="mb-16"><div class="ad-slot h-64">AdSense Display Ad (Middle)</div></div>
+
+        <!-- 4. GUIDE BOXES (4 SEO Boxes) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">What is Duplicate Remover?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    This tool helps you clean up messy lists by identifying and removing redundant lines. Whether it's an email list, a collection of keywords, or data exported from a spreadsheet, our tool ensures every line is unique.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">How to use it?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Simply paste your list into the editor box. Click on the "Remove Duplicates" button. Our algorithm will scan each line and filter out anything that appears more than once, leaving you with a clean result.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Why remove duplicates?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Repetitive data can waste space and make analysis difficult. For marketers and developers, having a unique list is essential for accurate processing and better campaign results.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Secure & Private</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Your data is handled with 100% privacy. The removal process happens entirely within your web browser. We never upload your lists to our servers, so your information stays only with you.
+                </p>
+            </div>
+        </div>
+
+        <!-- AD SLOT 4 -->
+        <div class="mt-16"><div class="ad-slot h-32">AdSense Large Banner (Bottom)</div></div>
+    </main>
+
+    <!-- 5. FOOTER (With COMPLETE PAGES SECTION) -->
+    <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 text-sm">
+                <!-- Column 1: Text Tools -->
+                <div>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
+                    </ul>
+                </div>
+                <!-- Column 2: Creative Tools -->
+                <div>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: PAGES (Corrected) -->
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600 font-medium">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600 font-medium">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600 font-medium">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DARK MODE
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        // DUPLICATE REMOVER LOGIC
+        const input = document.getElementById('inputText');
+        function removeDuplicates() {
+            if(!input.value) return;
+            const lines = input.value.split(/\r?\n/);
+            document.getElementById('originalCount').innerText = lines.length;
+            
+            const uniqueLines = [...new Set(lines)];
+            input.value = uniqueLines.join('\n');
+            document.getElementById('uniqueCount').innerText = uniqueLines.length;
+            alert('Duplicates Removed!');
+        }
+
+        function clearText() { 
+            input.value = ''; 
+            document.getElementById('originalCount').innerText = '0';
+            document.getElementById('uniqueCount').innerText = '0';
+        }
+
+        function copyText() { if(!input.value) return; input.select(); document.execCommand('copy'); alert('Copied!'); }
+    </script>
+</body>
+</html>

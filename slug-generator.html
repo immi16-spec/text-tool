@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slug Generator - TextToolPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+    <!-- 1. HEADER -->
+    <nav class="sticky top-0 z-50 shadow-sm" style="background-color: var(--nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
+                <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                    <div class="relative group py-5">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
+                        <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
+                            <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
+                            <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="py-5 hover:text-blue-600">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AD SLOT 1 -->
+    <div class="max-w-5xl mx-auto px-4 mt-8"><div class="ad-slot h-24">AdSense Banner Ad (Top)</div></div>
+
+    <main class="max-w-5xl mx-auto py-12 px-4">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Slug Generator</h1>
+            <p class="text-lg opacity-80" style="color: var(--text-muted);">Make SEO-friendly URL slugs for your articles and pages.</p>
+        </div>
+
+        <!-- 3. MAIN TOOL CARD -->
+        <div class="card p-10 mb-6">
+            <input type="text" id="inputText" class="w-full p-6 bg-gray-50 dark:bg-zinc-800 rounded-2xl outline-none text-xl border-none focus:ring-2 ring-blue-500 mb-6 dark:text-white" placeholder="Enter title here..." oninput="makeSlug()">
+            <div id="slugResult" class="w-full p-6 bg-blue-50 dark:bg-zinc-900 border-2 border-dashed border-blue-200 dark:border-zinc-700 rounded-2xl text-blue-600 dark:text-blue-400 font-mono text-xl break-all">your-slug-will-appear-here</div>
+            <div class="flex justify-end mt-8"><button onclick="copySlug()" class="px-10 py-3 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Copy Slug</button></div>
+        </div>
+
+        <!-- AD SLOT 2 & 3 -->
+        <div class="mb-10"><div class="ad-slot h-28">AdSense Native Ad</div></div>
+        <div class="mb-16"><div class="ad-slot h-64">AdSense Display Ad (Middle)</div></div>
+
+        <!-- 4. GUIDE BOXES -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card p-10"><h3 class="text-2xl font-bold mb-4 text-blue-600">What is a URL Slug?</h3><p class="text-sm leading-relaxed" style="color: var(--text-muted);">A slug is the part of a URL that identifies a page in a human-readable format. It’s vital for SEO as search engines use it to determine the content of your page.</p></div>
+            <div class="card p-10"><h3 class="text-2xl font-bold mb-4 text-blue-600">Why use Slugs?</h3><p class="text-sm leading-relaxed" style="color: var(--text-muted);">Clean, hyphenated slugs are much easier for users to share and for Google to index compared to URLs with random numbers or characters.</p></div>
+        </div>
+        
+
+         <!-- AD SLOT 2 & 3 -->   
+             
+    </main>
+       
+     <div class="mb-10"><div class="ad-slot h-28">AdSense Native Ad</div></div>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+                <div>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light'); }
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        function makeSlug() {
+            const input = document.getElementById('inputText').value;
+            const slug = input.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+            document.getElementById('slugResult').innerText = slug || 'your-slug-will-appear-here';
+        }
+        function copySlug() { const text = document.getElementById('slugResult').innerText; if(text.includes('appear-here')) return; navigator.clipboard.writeText(text); alert('Slug Copied!'); }
+    </script>
+</body>
+</html>

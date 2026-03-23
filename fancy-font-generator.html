@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Font Generator - Stylish Fonts for Social Media | TextToolPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Smooth scrolling for results */
+        #fontResults::-webkit-scrollbar { width: 5px; }
+        #fontResults::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+        .result-card:active { transform: scale(0.97); }
+    </style>
+</head>
+<body class="min-h-screen transition-colors duration-300">
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <nav class="sticky top-0 z-50 shadow-sm transition-colors" style="background-color: var(--nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
+                <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                    <div class="relative dropdown py-5 group cursor-pointer">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
+                        <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
+                            <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
+                            <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="py-5 hover:text-blue-600">About</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AD SLOT 1: TOP -->
+    <div class="max-w-5xl mx-auto px-4 mt-8">
+        <div class="ad-slot h-24">AdSense Banner Ad (Top Section)</div>
+    </div>
+
+    <main class="max-w-6xl mx-auto py-12 px-4">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Fancy Font Generator</h1>
+            <p class="text-lg opacity-80" style="color: var(--text-muted);">Create 70+ stylish and unique font styles for your Instagram and TikTok bio.</p>
+        </div>
+
+        <!-- 3. TWO-BOX TOOL LAYOUT -->
+        <div class="card p-4 md:p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-100 dark:bg-zinc-800 p-1 rounded-3xl overflow-hidden">
+                <!-- Input Box -->
+                <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl min-h-[450px]">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-4">Input Your Text</span>
+                    <textarea id="inputText" class="w-full h-full text-2xl font-bold border-none outline-none resize-none bg-transparent dark:text-white" placeholder="Type your name or bio..."></textarea>
+                </div>
+                <!-- Result Box -->
+                <div id="fontResults" class="bg-white dark:bg-zinc-900 p-6 rounded-2xl min-h-[450px] overflow-y-auto max-h-[500px] space-y-3">
+                    <p class="text-gray-300 italic text-center mt-20">Your stylish fonts will appear here instantly...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AD SLOT 2: BELOW RESULTS -->
+        <div class="mb-10">
+            <div class="ad-slot h-28">AdSense Native Ad (High Visibility)</div>
+        </div>
+
+        <!-- AD SLOT 3: MIDDLE -->
+        <div class="mb-16">
+            <div class="ad-slot h-64">AdSense Display Ad (Middle Section)</div>
+        </div>
+
+        <!-- 4. GUIDE BOXES (Detailed SEO Text) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">What is Fancy Font Generator?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    A Fancy Font Generator is a tool that converts your normal text into stylish symbols and Unicode characters. Since these are Unicode standards, you can copy and paste them into social media profiles like Instagram, TikTok, and Facebook where custom fonts are usually not allowed.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">How to use it for Social Media?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Simply type your text in the input box above. Our tool will instantly generate over 70 unique styles ranging from Gothic to Bubbles. Click on any style you like, and it will be copied to your clipboard instantly, ready for your bio or captions.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Privacy & Performance</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Your data is 100% private. All transformations happen locally in your web browser using JavaScript. No text is ever sent to our servers. This also makes the generator lightning-fast, providing results in milliseconds.
+                </p>
+            </div>
+            <div class="card p-10">
+                <h3 class="text-2xl font-bold mb-5 text-blue-600">Why Use Stylish Fonts?</h3>
+                <p class="text-sm leading-relaxed" style="color: var(--text-muted);">
+                    Stylish fonts help you stand out from the crowd. Whether you are an influencer, a gamer, or a business, unique fonts make your profile look more professional and visually appealing to your followers.
+                </p>
+            </div>
+        </div>
+
+        <!-- AD SLOT 4: BOTTOM -->
+        <div class="mt-16">
+            <div class="ad-slot h-32">AdSense Large Banner (Above Footer)</div>
+        </div>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 text-sm">
+                <div>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600 font-medium">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600 font-medium">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600 font-medium">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DARK MODE LOGIC
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        // FANCY FONT LOGIC
+        const input = document.getElementById('inputText');
+        const resultsDiv = document.getElementById('fontResults');
+
+        const maps = {
+            gothic: { a: '𝔞', b: '𝔟', c: '𝔠', d: '𝔡', e: '𝔢', f: '𝔣', g: '𝔤', h: '𝔥', i: '𝔦', j: '𝔧', k: '𝔨', l: '𝔩', m: '𝔪', n: '𝔫', o: '𝔬', p: '𝔭', q: '𝔮', r: '𝔯', s: '𝔰', t: '𝔱', u: '𝔲', v: '𝔳', w: '𝔴', x: '𝔵', y: '𝔶', z: '𝔷', A: '𝔄', B: '𝔅', C: 'ℭ', D: '𝔇', E: '𝔈', F: '𝔉', G: '𝔊', H: 'ℌ', I: 'ℑ', J: '𝔍', K: '𝔎', L: '𝔏', M: '𝔐', N: '𝔑', O: '𝔒', P: '𝔓', Q: '𝔔', R: 'ℜ', S: '𝔖', T: '𝔗', U: '𝔲', V: '𝔙', W: '𝔚', X: '𝔛', Y: '𝔜', Z: 'ℨ' },
+            bubbles: { a: 'ⓐ', b: 'ⓑ', c: 'ⓒ', d: 'ⓓ', e: 'ⓔ', f: 'ⓕ', g: 'ⓖ', h: 'ⓗ', i: 'ⓘ', j: 'ⓙ', k: 'ⓚ', l: 'ⓛ', m: 'ⓜ', n: 'ⓝ', o: 'ⓞ', p: 'ⓟ', q: 'ⓠ', r: 'ⓡ', s: 'ⓢ', t: 'ⓣ', u: 'ⓤ', v: 'ⓥ', w: 'ⓦ', x: 'ⓧ', y: 'ⓨ', z: 'ⓩ', A: 'Ⓐ', B: 'Ⓑ', C: 'Ⓒ', D: 'Ⓓ', E: 'Ⓔ', F: 'Ⓕ', G: 'Ⓖ', H: 'Ⓗ', I: 'Ⓘ', J: 'Ⓙ', K: 'Ⓚ', L: 'Ⓛ', M: 'Ⓜ', N: 'Ⓝ', O: 'Ⓞ', P: 'Ⓟ', Q: 'Ⓠ', R: 'Ⓡ', S: 'Ⓢ', T: 'Ⓣ', U: 'Ⓤ', V: 'Ⓥ', W: 'Ⓦ', X: 'Ⓧ', Y: 'Ⓨ', Z: 'Ⓩ' },
+            squares: { a: '🄰', b: '🄱', c: '🄲', d: '🄳', e: '🄴', f: '🄵', g: '🄶', h: '🄷', i: '🄸', j: '🄹', k: '🄺', l: '🄻', m: '🄼', n: '🄽', o: '🄾', p: '🄿', q: '🅀', r: '🅁', s: '🅂', t: '🅃', u: '🅄', v: '🅅', w: '🅆', x: '🅇', y: '🅈', z: '🅉' }
+        };
+
+        const decorations = [
+            "★彡 [text] 彡★", "(っ◔◡◔)っ ♥ [text] ♥", "˜”*°•.˜”*°• [text] •°*”˜", 
+            "🐞 🎀 [text] 🎀 🐞", "¸„.-•~¹°”ˆ˜¨ [text] ¨˜ˆ”°¹~•-.„¸", "★·.·´¯`·.·★ [text] ★·.·´¯`·.·★",
+            "【[text]】", "『[text]』", "≋[text]≋", "░[text]░", "💀🍔 [text] 🍓♧", "🐐 ⋆ 🐙 🎀 [text] 🎀 🐙 ⋆ 🐐",
+            "ıɥ [text]", "✌✋ [text] ☹🎀", "🐲🎅 [text] 🍮💢", "☆♗ [text] 🐺🍟", "★彡 [text] 彡★", "💣🍬 [text] 👽🎃",
+            "👊💢 [text] 😈♣", "♥😡 [text] ☯🐙", "♕♬ [text] 👹✋", "😲🐨 [text] 😝♡", "✴ 🎀 [text] 🎀 ✴"
+        ];
+
+        function transform(text, map) { return text.split('').map(c => map[c] || c).join(''); }
+
+        input.addEventListener('input', () => {
+            const val = input.value.trim();
+            if (!val) { resultsDiv.innerHTML = '<p class="text-gray-300 italic text-center mt-20">Your unique fonts will appear here...</p>'; return; }
+
+            let html = "";
+            Object.keys(maps).forEach(key => { html += createCard(key.toUpperCase(), transform(val, maps[key])); });
+            decorations.forEach((dec, index) => { html += createCard("Style " + (index + 1), dec.replace("[text]", val)); });
+            resultsDiv.innerHTML = html;
+        });
+
+        function createCard(title, text) {
+            return `
+                <div class="result-card p-4 bg-gray-50 dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-xl cursor-pointer hover:bg-blue-50 dark:hover:bg-zinc-700 transition relative group" onclick="copyToClipboard('${text}')">
+                    <div class="text-[9px] font-bold text-gray-400 uppercase mb-1 tracking-tighter">${title}</div>
+                    <div class="text-lg text-gray-800 dark:text-gray-200 break-words">${text}</div>
+                    <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 text-[9px] font-bold text-blue-600 uppercase">Click to Copy</div>
+                </div>`;
+        }
+
+        window.copyToClipboard = (text) => {
+            navigator.clipboard.writeText(text);
+            const notification = document.createElement('div');
+            notification.className = "fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full shadow-lg z-50 text-sm font-bold";
+            notification.innerText = "Copied!";
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 2000);
+        };
+    </script>
+</body>
+</html>
