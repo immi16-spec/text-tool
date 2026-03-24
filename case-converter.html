@@ -52,10 +52,10 @@
         <!-- MAIN TOOL CARD (Buttons on Top) -->
         <div class="card p-6 md:p-10 mb-6">
             <div class="flex flex-wrap gap-2 mb-6 bg-gray-50 dark:bg-zinc-800 p-3 rounded-xl border border-gray-100 dark:border-zinc-700">
-                <button onclick="upper()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Upper Case</button>
-                <button onclick="lower()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Lower Case</button>
-                <button onclick="sentence()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Sentence Case</button>
-                <button onclick="capitalize()" class="px-5 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 dark:text-white transition shadow-sm">Capitalized Case</button>
+                <button onclick="upper()" class="px-5 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition uppercase hover:text-white-600 dark:text-white transition shadow-sm">Upper Case</button>
+                <button onclick="lower()" class="px-5 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition uppercase hover:text-white-600 dark:text-white transition shadow-sm">Lower Case</button>
+                <button onclick="sentence()" class="px-5 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition uppercase hover:text-white-600 dark:text-white transition shadow-sm">Sentence Case</button>
+                <button onclick="capitalize()" class="px-5 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition uppercase hover:text-white-600 dark:text-white transition shadow-sm">Capitalized Case</button>
                 <button onclick="copyText()" class="ml-auto px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700">Copy Result</button>
             </div>
 
@@ -176,8 +176,28 @@
             input.value = input.value.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
         }
 
-        function clearText() { input.value = ''; }
-        function copyText() { if(!input.value) return; input.select(); document.execCommand('copy'); alert('Copied to clipboard!'); }
+       function clearText() { 
+            input.value = ''; 
+            input.dispatchEvent(new Event('input')); 
+            showToast("Text Cleared! 🧹"); // Optional: Clear par bhi toast dikha sakte hain
+        }
+
+        function copyText() { 
+            if(!input.value) return; 
+            input.select(); 
+            document.execCommand('copy'); 
+            // alert hat gaya, ab toast chalega
+            showToast("Copied to Clipboard! ✅"); 
+        }
+
+        // Ye helper function lazmi script mein niche add karein
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 2000);
+        }
     </script>
 </body>
 </html>

@@ -65,7 +65,7 @@
             </div>
             
             <div class="flex justify-between items-center mt-8 pt-8 border-t" style="border-color: var(--border-color);">
-                <button onclick="clearText()" class="px-6 py-2 bg-gray-100 dark:bg-zinc-700 text-gray-500 rounded-lg font-bold text-xs uppercase">Clear</button>
+                <button onclick="clearText()" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clear</button>
                 <button onclick="copyOutput()" class="px-10 py-3 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Copy Phonetic Text</button>
             </div>
         </div>
@@ -170,8 +170,32 @@
             output.innerText = result;
         });
 
-        function clearText() { input.value = ''; output.innerText = ''; }
-        function copyOutput() { if(!output.innerText) return; navigator.clipboard.writeText(output.innerText); alert('Copied!'); }
+       function clearText() { 
+            input.value = ''; 
+            output.innerText = ''; 
+            showToast("Cleared! 🧹");
+        }
+
+        function copyOutput() { 
+            if(!output.innerText) return; 
+            navigator.clipboard.writeText(output.innerText); 
+            
+            // Alert hat gaya, ab Toast chalega
+            showToast("Copied to Clipboard! ✅"); 
+        }
+
+        // Ye helper function lazmi script ke aakhir mein rakhein
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            
+            // 2 seconds baad gayab ho jaye
+            setTimeout(() => {
+                toast.remove();
+            }, 2000);
+        }
     </script>
 </body>
 </html>

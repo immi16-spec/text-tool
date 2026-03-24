@@ -82,7 +82,7 @@
 
             <div class="flex flex-wrap justify-end items-center gap-4 mt-8 pt-8 border-t dark:border-zinc-700">
                 <button onclick="processAI()" id="actionBtn" class="px-10 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl hover:bg-blue-700 transition-all">Fix Grammar & Process</button>
-                <button onclick="copyOutput()" class="px-8 py-4 bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-white rounded-2xl font-bold hover:bg-gray-200 transition-all">Copy Result</button>
+                <button onclick="copyOutput()" class="px-10 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl hover:bg-blue-700 transition-all hover:bg-blue-700 transition-all">Copy Result</button>
             </div>
         </div>
 
@@ -268,15 +268,39 @@
             }
         }
 
-        function copyOutput() {
-            const text = document.getElementById('outputText').innerText;
-            if(text.includes("Result will appear")) return;
-            const el = document.createElement('textarea');
-            el.value = text; document.body.appendChild(el);
-            el.select(); document.execCommand('copy');
-            document.body.removeChild(el);
-            alert("Copied!");
-        }
+       function copyOutput() {
+    const outputBox = document.getElementById('outputText');
+    const text = outputBox.innerText; // Div ke liye innerText best hai
+
+    // 1. Check karein ke text copy karne layak hai ya nahi
+    if (!text || text.includes("Result will appear") || text.includes("Error:")) {
+        showToast("Nothing to copy! ❌");
+        return;
+    }
+
+    // 2. Modern Clipboard API use karein (Ye zyada reliable hai)
+    navigator.clipboard.writeText(text).then(() => {
+        showToast("Copied to Clipboard! ✅");
+    }).catch(err => {
+        // Agar modern API fail ho jaye toh purana tareeqa (Fallback)
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        showToast("Copied! ✅");
+    });
+}
+
+// Ye function lazmi niche hona chahiye
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-msg';
+    toast.innerText = message;
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.remove(); }, 2000);
+}
 
         function clearText() { 
             document.getElementById('inputText').value = ''; 

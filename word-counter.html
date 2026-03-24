@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="flex gap-3">
-                    <button onclick="clearText()" class="px-6 py-2 bg-gray-100 dark:bg-zinc-700 rounded-lg font-bold text-sm hover:bg-gray-200 transition">Clear</button>
+                    <button onclick="clearText()" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clear</button>
                     <button onclick="copyText()" class="px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Copy Text</button>
                 </div>
             </div>
@@ -181,8 +181,28 @@
             document.getElementById('lineCount').innerText = input.value ? input.value.split('\n').length : 0;
         });
 
-        function clearText() { input.value = ''; input.dispatchEvent(new Event('input')); }
-        function copyText() { if(!input.value) return; input.select(); document.execCommand('copy'); alert('Copied!'); }
+      function clearText() { 
+            input.value = ''; 
+            input.dispatchEvent(new Event('input')); 
+            showToast("Text Cleared! 🧹"); // Optional: Clear par bhi toast dikha sakte hain
+        }
+
+        function copyText() { 
+            if(!input.value) return; 
+            input.select(); 
+            document.execCommand('copy'); 
+            // alert hat gaya, ab toast chalega
+            showToast("Copied to Clipboard! ✅"); 
+        }
+
+        // Ye helper function lazmi script mein niche add karein
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 2000);
+        }
     </script>
 </body>
 </html>

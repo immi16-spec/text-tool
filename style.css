@@ -37,3 +37,27 @@ footer { background: #0f172a !important; color: #94a3b8 !important; }
 footer h4 { color: #ffffff !important; }
 footer a { color: #94a3b8 !important; }
 footer a:hover { color: #3b82f6 !important; }
+
+/* Custom Toast Notification Style */
+.toast-msg {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; bottom: 10px; }
+    20% { opacity: 1; bottom: 20px; }
+    80% { opacity: 1; bottom: 20px; }
+    100% { opacity: 0; bottom: 10px; }
+}

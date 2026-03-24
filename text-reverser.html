@@ -53,10 +53,10 @@
         <div class="card p-6 md:p-10 mb-6">
             <!-- Top Action Buttons -->
             <div class="flex flex-wrap gap-2 mb-6 bg-gray-50 dark:bg-zinc-800 p-3 rounded-xl border border-gray-100 dark:border-zinc-700">
-                <button onclick="reverseChars()" class="px-4 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 transition shadow-sm">Reverse Chars</button>
-                <button onclick="reverseWords()" class="px-4 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 transition shadow-sm">Reverse Words</button>
-                <button onclick="flipText()" class="px-4 py-2 bg-white dark:bg-zinc-700 border border-gray-200 dark:border-zinc-600 rounded-lg text-xs font-bold uppercase hover:text-blue-600 transition shadow-sm">Flip Upside Down</button>
-                <button onclick="clearText()" class="ml-auto px-5 py-2 bg-gray-100 dark:bg-zinc-700 text-gray-500 rounded-lg font-bold text-xs uppercase transition">Clear</button>
+                <button onclick="reverseChars()" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Reverse Chars</button>
+                <button onclick="reverseWords()" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Reverse Words</button>
+                <button onclick="flipText()" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Flip Upside Down</button>
+                <button onclick="clearText()" class="ml-auto px-5 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clear</button>
             </div>
 
             <!-- Two Boxes Container -->
@@ -166,8 +166,32 @@
             output.innerText = input.value.toLowerCase().split('').reverse().map(c => map[c] || c).join('');
         }
 
-        function clearText() { input.value = ''; output.innerText = ''; }
-        function copyOutput() { if(!output.innerText) return; navigator.clipboard.writeText(output.innerText); alert('Copied!'); }
+        function clearText() { 
+            input.value = ''; 
+            output.innerText = ''; 
+            showToast("Cleared! 🧹");
+        }
+
+        function copyOutput() { 
+            if(!output.innerText) return; 
+            navigator.clipboard.writeText(output.innerText); 
+            
+            // Alert hat gaya, ab Toast chalega
+            showToast("Copied to Clipboard! ✅"); 
+        }
+
+        // Ye helper function lazmi script ke aakhir mein rakhein
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            
+            // 2 seconds baad gayab ho jaye
+            setTimeout(() => {
+                toast.remove();
+            }, 2000);
+        }
     </script>
 </body>
 </html>

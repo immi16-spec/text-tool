@@ -9,24 +9,32 @@
 </head>
 <body class="min-h-screen transition-colors duration-300">
 
-    <!-- 1. HEADER -->
+     <!-- 1. HEADER / NAVIGATION -->
     <nav class="sticky top-0 z-50 shadow-sm" style="background-color: var(--nav-bg);">
         <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
             <div class="flex items-center gap-8">
                 <a href="index.html" class="text-2xl font-bold text-blue-600">TextToolPro</a>
                 <div class="hidden md:flex space-x-6 text-[11px] font-bold uppercase tracking-widest text-gray-500">
-                    <div class="relative dropdown py-5 group cursor-pointer">
-                        <button class="hover:text-blue-600 uppercase">Text Tools ▼</button>
+                    <div class="relative group py-5">
+                        <button class="hover:text-blue-600 flex items-center">Text Tools ▼</button>
                         <div class="absolute hidden group-hover:block bg-white dark:bg-zinc-900 shadow-xl border border-gray-100 dark:border-zinc-800 rounded-lg w-56 mt-1 overflow-hidden font-normal normal-case text-gray-700 dark:text-gray-200">
                             <a href="word-counter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Word Counter</a>
                             <a href="case-converter.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Case Converter</a>
-                            <a href="grammar-checker.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Grammar Checker</a>
+                            <a href="clean-spaces.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Clean Extra Spaces</a>
+                            <a href="duplicate-remover.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Duplicate Remover</a>
+                            <a href="text-reverser.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Text Reverser</a>
+                            <a href="nato-translator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">NATO Translator</a>
+                            <a href="lorem-ipsum.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800 border-b dark:border-zinc-800">Lorem Ipsum</a>
+                            <a href="fancy-font-generator.html" class="block px-4 py-3 hover:bg-blue-50 dark:hover:bg-zinc-800">Fancy Fonts</a>
                         </div>
                     </div>
                     <a href="about.html" class="py-5 hover:text-blue-600">About</a>
                 </div>
             </div>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-xs font-bold uppercase hover:text-blue-600 text-gray-500">Home</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 text-xl">🌓</button>
+            </div>
         </div>
     </nav>
 
@@ -104,28 +112,46 @@
         <div class="ad-slot h-32 mt-10">AdSense Large Banner (Bottom)</div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-black text-white py-16 transition-colors">
+   <!-- FOOTER -->
+   <footer class="bg-white dark:bg-zinc-900 border-t py-16 transition-colors">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
                 <div>
-                    <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Main Tools</h4>
-                    <ul class="space-y-3 opacity-60">
-                        <li><a href="grammar-checker.html" class="hover:text-blue-400">Grammar Checker</a></li>
-                        <li><a href="word-counter.html" class="hover:text-blue-400">Word Counter</a></li>
-                        <li><a href="case-converter.html" class="hover:text-blue-400">Case Converter</a></li>
+                    <h4 class="font-bold text-blue-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full"></span> Text Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="word-counter.html" class="hover:text-blue-600">Word Counter</a></li>
+                        <li><a href="case-converter.html" class="hover:text-blue-600">Case Converter</a></li>
+                        <li><a href="clean-spaces.html" class="hover:text-blue-600">Clean Extra Spaces</a></li>
+                        <li><a href="duplicate-remover.html" class="hover:text-blue-600">Duplicate Remover</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Pages</h4>
-                    <ul class="space-y-3 opacity-60">
-                        <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
-                        <li><a href="about.html" class="hover:text-blue-400">About Us</a></li>
-                        <li><a href="privacy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                    <h4 class="font-bold text-green-600 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-green-600 rounded-full"></span> Creative Tools
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="fancy-font-generator.html" class="hover:text-blue-600">Fancy Fonts</a></li>
+                        <li><a href="text-reverser.html" class="hover:text-blue-600">Text Reverser</a></li>
+                        <li><a href="nato-translator.html" class="hover:text-blue-600">NATO Translator</a></li>
+                        <li><a href="lorem-ipsum.html" class="hover:text-blue-600">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span> Pages
+                    </h4>
+                    <ul class="space-y-3" style="color: var(--text-muted);">
+                        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                        <li><a href="about.html" class="hover:text-blue-600">About Us</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-20 border-t border-zinc-800 pt-8 text-center text-[10px] opacity-30 uppercase tracking-[3px]">© 2026 TEXTTOOLPRO</div>
+            <div class="mt-20 border-t pt-8 text-center text-[10px] uppercase tracking-[3px] opacity-50" style="border-color: var(--border-color);">
+                © 2026 TEXTTOOLPRO | ALL RIGHTS RESERVED.
+            </div>
         </div>
     </footer>
 
@@ -189,17 +215,40 @@
         }
     }
 
-    function copyOutput() {
-        const text = document.getElementById('outputText').innerText;
-        if(text.includes("Result will appear") || text.includes("Error:")) return;
+   function copyOutput() {
+    const outputBox = document.getElementById('outputText');
+    const text = outputBox.innerText; // Div ke liye innerText best hai
+
+    // 1. Check karein ke text copy karne layak hai ya nahi
+    if (!text || text.includes("Result will appear") || text.includes("Error:")) {
+        showToast("Nothing to copy! ❌");
+        return;
+    }
+
+    // 2. Modern Clipboard API use karein (Ye zyada reliable hai)
+    navigator.clipboard.writeText(text).then(() => {
+        showToast("Copied to Clipboard! ✅");
+    }).catch(err => {
+        // Agar modern API fail ho jaye toh purana tareeqa (Fallback)
         const el = document.createElement('textarea');
         el.value = text;
         document.body.appendChild(el);
         el.select();
         document.execCommand('copy');
         document.body.removeChild(el);
-        alert("Copied!");
-    }
+        showToast("Copied! ✅");
+    });
+}
+
+// Ye function lazmi niche hona chahiye
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-msg';
+    toast.innerText = message;
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.remove(); }, 2000);
+}
+    
 
     function clearText() { 
         document.getElementById('inputText').value = ''; 

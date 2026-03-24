@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="flex gap-3">
-                    <button onclick="clearText()" class="px-6 py-2 bg-gray-100 dark:bg-zinc-700 rounded-lg font-bold text-sm hover:bg-gray-200 transition">Clear</button>
+                    <button onclick="clearText()" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clear</button>
                     <button onclick="removeDuplicates()" class="px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Remove Duplicates</button>
                 </div>
             </div>
@@ -164,25 +164,49 @@
         if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
 
         // DUPLICATE REMOVER LOGIC
-        const input = document.getElementById('inputText');
-        function removeDuplicates() {
-            if(!input.value) return;
-            const lines = input.value.split(/\r?\n/);
-            document.getElementById('originalCount').innerText = lines.length;
-            
-            const uniqueLines = [...new Set(lines)];
-            input.value = uniqueLines.join('\n');
-            document.getElementById('uniqueCount').innerText = uniqueLines.length;
-            alert('Duplicates Removed!');
-        }
+       // DUPLICATE REMOVER LOGIC
+    const input = document.getElementById('inputText');
 
-        function clearText() { 
-            input.value = ''; 
-            document.getElementById('originalCount').innerText = '0';
-            document.getElementById('uniqueCount').innerText = '0';
-        }
+    function removeDuplicates() {
+        if(!input.value) return;
+        const lines = input.value.split(/\r?\n/);
+        document.getElementById('originalCount').innerText = lines.length;
+        
+        const uniqueLines = [...new Set(lines)];
+        input.value = uniqueLines.join('\n');
+        document.getElementById('uniqueCount').innerText = uniqueLines.length;
+        
+        // Alert ki jagah Toast
+        showToast('Duplicates Removed! ✂️');
+    }
 
-        function copyText() { if(!input.value) return; input.select(); document.execCommand('copy'); alert('Copied!'); }
+    function clearText() { 
+        input.value = ''; 
+        document.getElementById('originalCount').innerText = '0';
+        document.getElementById('uniqueCount').innerText = '0';
+    }
+
+    function copyText() { 
+        if(!input.value) return; 
+        input.select(); 
+        document.execCommand('copy'); 
+        
+        // Alert ki jagah Toast
+        showToast('Copied to Clipboard! ✅'); 
+    }
+
+    // Ye helper function lazmi script ke aakhir mein rakhein
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-msg';
+        toast.innerText = message;
+        document.body.appendChild(toast);
+        
+        // 2 seconds baad gayab ho jaye
+        setTimeout(() => {
+            toast.remove();
+        }, 2000);
+    }
     </script>
 </body>
 </html>

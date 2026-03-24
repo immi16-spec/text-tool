@@ -58,7 +58,7 @@
                     Instruction: This tool replaces multiple spaces with a single clean space.
                 </div>
                 <div class="flex gap-3">
-                    <button onclick="clearText()" class="px-6 py-2 bg-gray-100 dark:bg-zinc-700 rounded-lg font-bold text-sm hover:bg-gray-200 transition">Clear</button>
+                    <button onclick="clearText()" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clear</button>
                     <button onclick="cleanSpaces()" class="px-8 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm shadow-lg hover:bg-blue-700 transition">Clean Spaces Now</button>
                 </div>
             </div>
@@ -166,23 +166,40 @@
         // CLEAN SPACES Logic
         const input = document.getElementById('inputText');
         function cleanSpaces() {
-            if(!input.value) return;
-            // Regex to replace all multiple spaces/tabs with single space and trim ends
-            input.value = input.value.replace(/\s+/g, ' ').trim();
-            alert('Text Cleaned!');
-        }
+    if(!input.value) return;
+    // Multiple spaces ko single space mein badalna
+    input.value = input.value.replace(/\s+/g, ' ').trim();
+    
+    // Alert ki jagah Toast
+    showToast('Text Cleaned! ✨');
+}
 
-        function clearText() { 
-            input.value = ''; 
-            input.dispatchEvent(new Event('input')); 
-        }
+function clearText() { 
+    input.value = ''; 
+    input.dispatchEvent(new Event('input')); 
+}
 
-        function copyText() { 
-            if(!input.value) return;
-            input.select(); 
-            document.execCommand('copy'); 
-            alert('Cleaned text copied!'); 
-        }
+function copyText() { 
+    if(!input.value) return; 
+    input.select(); 
+    document.execCommand('copy'); 
+    
+    // Alert ki jagah Toast
+    showToast('Copied to Clipboard! ✅'); 
+}
+
+// Ye helper function lazmi script ke aakhir mein rakhein
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-msg';
+    toast.innerText = message;
+    document.body.appendChild(toast);
+    
+    // 2 seconds baad gayab ho jaye
+    setTimeout(() => {
+        toast.remove();
+    }, 2000);
+}
     </script>
 </body>
 </html>
