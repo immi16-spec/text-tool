@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { tools } from '@/lib/tools';
 import { Logo } from '../Logo';
@@ -173,6 +173,9 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="left">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <SheetDescription className="sr-only">
+                  Browse site links and search text tools from the mobile navigation panel.
+                </SheetDescription>
                 <div className="p-4">
                   <Logo />
                   <div className="relative mt-6">

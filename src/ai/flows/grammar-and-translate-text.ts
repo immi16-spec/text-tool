@@ -3,13 +3,17 @@
 import {ai, defaultTextModel} from '@/ai/genkit';
 import {z} from 'genkit';
 
-const GrammarAndTranslateTextInputSchema = z.object({
-  text: z.string(),
-  targetLanguage: z.string().optional(),
-  tone: z.string().optional(),
+export const GrammarAndTranslateTextInputSchema = z.object({
+  text: z
+    .string()
+    .trim()
+    .min(1, {message: 'Text is required'})
+    .max(1000, {message: 'Max 1000 characters allowed'}),
+  targetLanguage: z.string().trim().optional(),
+  tone: z.string().trim().optional(),
 });
 
-const GrammarAndTranslateTextOutputSchema = z.object({
+export const GrammarAndTranslateTextOutputSchema = z.object({
   correctedText: z.string(),
   translatedText: z.string().optional(),
 });
@@ -24,7 +28,8 @@ export type GrammarAndTranslateTextOutput = z.infer<
 export async function grammarAndTranslateText(
   input: GrammarAndTranslateTextInput
 ) {
-  return grammarAndTranslateTextFlow(input);
+  const validatedInput = GrammarAndTranslateTextInputSchema.parse(input);
+  return grammarAndTranslateTextFlow(validatedInput);
 }
 
 const grammarAndTranslateTextPrompt = ai.definePrompt({
@@ -48,11 +53,17 @@ const grammarAndTranslateTextFlow = ai.defineFlow(
     outputSchema: GrammarAndTranslateTextOutputSchema,
   },
   async (input) => {
-    // Prompt ko call karein
-    const {output} = await grammarAndTranslateTextPrompt(input);
-    if (!output) {
-      throw new Error('AI Response empty');
+    try {
+      const {output} = await grammarAndTranslateTextPrompt(input);
+
+      if (!output) {
+        throw new Error('AI response was empty.');
+      }
+
+      return output;
+    } catch (error) {
+      console.error('grammarAndTranslateTextFlow failed', error);
+      throw new Error('Unable to process text right now. Please try again.');
     }
-    return output;
   }
 );

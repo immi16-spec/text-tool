@@ -67,8 +67,8 @@ export default function PrivacyPage() {
         <p className="mt-4 leading-7 text-muted-foreground">
           If you have questions about this Privacy Policy or how information is handled on
           TextToolPro, contact us at{' '}
-          <a href="mailto:contact@texttoolpro.com" className="font-medium text-primary hover:underline">
-            contact@texttoolpro.com
+          <a href="mailto:contact.findsandflips@gmail.com" className="font-medium text-primary hover:underline">
+            contact.findsandflips@gmail.com
           </a>
           .
         </p>

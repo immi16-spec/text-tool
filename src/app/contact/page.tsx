@@ -69,8 +69,8 @@ export default function ContactPage() {
             <p className="text-sm text-muted-foreground">
               This contact form is a placeholder for your preferred submission workflow. You can
               also email us directly at{' '}
-              <a href="mailto:contact@texttoolpro.com" className="font-medium text-primary hover:underline">
-                contact@texttoolpro.com
+              <a href="mailto:contact.findsandflips@gmail.com" className="font-medium text-primary hover:underline">
+                contact.findsandflips@gmail.com
               </a>
               .
             </p>
@@ -84,8 +84,8 @@ export default function ContactPage() {
             questions, privacy requests, or tool recommendations.
           </p>
           <p className="mt-4 text-base font-medium">
-            <a href="mailto:contact@texttoolpro.com" className="text-primary hover:underline">
-              contact@texttoolpro.com
+            <a href="mailto:contact.findsandflips@gmail.com" className="text-primary hover:underline">
+              contact.findsandflips@gmail.com
             </a>
           </p>
           <p className="mt-6 text-sm leading-6 text-muted-foreground">

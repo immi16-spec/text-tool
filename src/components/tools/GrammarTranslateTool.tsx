@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { submitGrammarTranslateAction } from '@/app/tools/grammar-checker-translate/actions';
 import type { GrammarAndTranslateTextOutput } from '@/ai/flows/grammar-and-translate-text';
 
 import { Button } from '@/components/ui/button';
@@ -17,7 +16,11 @@ import { Languages, Loader2, Copy, Trash2 } from 'lucide-react';
 import { Separator } from '../ui/separator';
 
 const formSchema = z.object({
-  text: z.string().min(5, { message: 'Please enter at least 5 characters.' }),
+  text: z
+    .string()
+    .trim()
+    .min(1, { message: 'Text is required' })
+    .max(1000, { message: 'Max 1000 characters allowed' }),
   targetLanguage: z.string().optional(),
 });
 
@@ -48,18 +51,35 @@ export function GrammarTranslateTool() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setOutput(null);
     setError(null);
+
     try {
-      const result = await submitGrammarTranslateAction({
-        text: values.text,
-        targetLanguage:
-          values.targetLanguage === NO_TRANSLATION_VALUE
-            ? undefined
-            : values.targetLanguage,
+      const response = await fetch('/api/grammar-checker-translate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: values.text,
+          targetLanguage:
+            values.targetLanguage === NO_TRANSLATION_VALUE
+              ? undefined
+              : values.targetLanguage,
+        }),
       });
-      setOutput(result);
+
+      const payload = (await response.json()) as
+        | { success: true; result: GrammarAndTranslateTextOutput }
+        | { success: false; error: string };
+
+      if (!response.ok || !payload.success) {
+        setError(payload.success ? 'Unable to process text right now. Please try again.' : payload.error);
+        return;
+      }
+
+      setOutput(payload.result);
     } catch (e) {
       console.error(e);
-      setError('An error occurred while processing your request. Please try again.');
+      setError('Unable to process text right now. Please try again.');
     }
   }
   
@@ -84,6 +104,7 @@ export function GrammarTranslateTool() {
                     <Textarea
                       placeholder="Enter text to correct and/or translate..."
                       className="min-h-[150px]"
+                      maxLength={1000}
                       {...field}
                     />
                   </FormControl>
