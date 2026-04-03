@@ -1,5 +1,3 @@
-'use server';
-
 import {ai, defaultTextModel} from '@/ai/genkit';
 import {z} from 'genkit';
 
