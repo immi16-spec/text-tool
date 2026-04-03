@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   },
   description: 'A complete suite of free, fast, and modern text utilities. Includes a fancy text generator, word counter, case converter, and more. No signup required, instant results.',
   keywords: 'text tools, fancy text, word counter, case converter, slug generator, online tools',
+  verification: {
+    google: 'I6issFD7PImxKHGMAmCrXvhn_gWfKirCj4eBmKZ5BOA',
+  },
   openGraph: {
     title: 'TextToolPro - Free & Modern Text Tools',
     description: 'The ultimate collection of online text manipulation tools.',
