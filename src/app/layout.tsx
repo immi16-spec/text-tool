@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://texttoolpro.com'),
+  metadataBase: new URL('https://texttoolpro.vercel.app'),
   title: {
     default: 'TextToolPro - Free & Modern Text Tools',
     template: '%s | TextToolPro',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: 'TextToolPro - Free & Modern Text Tools',
     description: 'The ultimate collection of online text manipulation tools.',
     type: 'website',
-    url: 'https://texttoolpro.com', // Replace with your actual domain
+    url: 'https://texttoolpro.vercel.app', // Replace with your actual domain
     siteName: 'TextToolPro',
   },
   twitter: {
