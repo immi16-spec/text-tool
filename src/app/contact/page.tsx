@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ContactForm } from './ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact TextToolPro',
@@ -22,59 +23,7 @@ export default function ContactPage() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
         <section className="rounded-2xl border bg-card p-6 shadow-sm">
-          <h2 className="text-2xl font-semibold">Send a Message</h2>
-          <form className="mt-6 space-y-4">
-            <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-                placeholder="Your name"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-                placeholder="contact@yourdomain.com"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                className="w-full rounded-md border bg-background px-3 py-2 text-sm outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-                placeholder="Tell us how we can help."
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
-            >
-              Send Inquiry
-            </button>
-            <p className="text-sm text-muted-foreground">
-              This contact form is a placeholder for your preferred submission workflow. You can
-              also email us directly at{' '}
-              <a href="mailto:contact.findsandflips@gmail.com" className="font-medium text-primary hover:underline">
-                contact.findsandflips@gmail.com
-              </a>
-              .
-            </p>
-          </form>
+          <ContactForm />
         </section>
 
         <aside className="rounded-2xl border bg-muted/40 p-6">

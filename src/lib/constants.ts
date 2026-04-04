@@ -9,3 +9,5 @@ export const natoPhoneticAlphabet: { [key: string]: string } = {
   '6': 'Six', '7': 'Seven', '8': 'Eight', '9': 'Nine', '0': 'Zero',
   '.': 'Period', ',': 'Comma', '?': 'Question Mark', '!': 'Exclamation Mark'
 };
+
+export const FORMSPREE_CONTACT_ENDPOINT = 'https://formspree.io/f/mdapwbzz';
